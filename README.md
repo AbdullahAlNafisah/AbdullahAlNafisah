@@ -8,7 +8,9 @@
 
 Physics and EE at KFUPM. MSc ECE at KAUST.
 
-`c++` `python` `systemverilog` `hls`
+Python, C/C++, SystemVerilog/Verilog, Tcl, CMake/Make, Git.
+
+[**CV**](cv/Abdullah_Al_Nafisah_CV.pdf)
 
 </td>
 <td valign="top" width="46%">
