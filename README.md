@@ -32,8 +32,7 @@ Physics and EE at KFUPM. MSc ECE at KAUST.
 **Multi-Stream Partial Response Signaling.** Two bits per symbol, interference added on purpose, and a turbo loop that untangles it.
 [coded-msprs](https://github.com/AbdullahAlNafisah/coded-msprs) · [arXiv:2511.08553](https://arxiv.org/abs/2511.08553) · [MSc thesis](https://repository.kaust.edu.sa/items/db129afb-21ad-468d-aaee-864f2518d0b7)
 
-**Transformer inference on a $99 FPGA.** GPT-2, TinyLlama and a ternary kernel on a PYNQ-Z2, checked bit for bit on the board. Private while early.
-[al-nafisah.com](https://al-nafisah.com)
+**Transformer inference on a $99 FPGA.** GPT-2, TinyLlama and a ternary kernel on a PYNQ-Z2, checked bit for bit on the board.
 
 ---
 
