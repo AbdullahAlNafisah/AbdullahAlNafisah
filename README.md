@@ -1,10 +1,33 @@
-```
-abdullah al-nafisah · llm inference hardware for commodity fpgas
-```
+<table>
+<tr>
+<td valign="top" width="54%">
 
-I take the matrix–vector multiply that dominates every transformer linear layer,
-push it into FPGA fabric, and then prove it matches the reference **bit for bit
-on real silicon** — not in simulation, not within tolerance. Zero.
+### abdullah al-nafisah
+
+`llm inference hardware for commodity fpgas`
+
+I take the matrix–vector multiply that dominates every transformer linear layer, push it into FPGA fabric, and prove it matches the reference **bit for bit on real silicon** — not in simulation, not within tolerance. Zero.
+
+`systemverilog` `vitis hls` `cocotb` `verilator` `pynq` `python`
+
+</td>
+<td valign="top" width="46%">
+
+<pre>
+    ┌───────────────────────────┐
+║█║ │░░░░░░░░░░░░░░░░░░░░░░░░░░░│ ║█║
+║█║ │░ ┌─────────┐ ┌─────────┐ ░│ ║█║
+║█║ │░ │ ARM  PS │ │   PL    │ ░│ ║█║
+║█║ │░ │ softmax │ │  GEMV   │ ░│ ║█║
+║█║ │░ │ norms   │ │ ███████ │ ░│ ║█║
+║█║ │░ └─────────┘ └─────────┘ ░│ ║█║
+║█║ │░░░░░░░ XC7Z020 ░░░░░░░░░░░│ ║█║
+    └───────────────────────────┘
+</pre>
+
+</td>
+</tr>
+</table>
 
 ```
              one weight-stationary GEMV, four datapaths
@@ -17,8 +40,7 @@ AXI4-Stream ┤  Q4.12  ·  INT8  ·  W3 g128  ·  ternary  ├──> tokens
                        all on a $99 Zynq-7020
 ```
 
-Same AXI-Stream boundary every time; only the datapath changes. That is the
-whole thesis — the RTL ports up to a Kria K26 or a ZCU104 untouched.
+Same AXI-Stream boundary every time; only the datapath changes. That is the whole thesis — the RTL ports up to a Kria K26 or a ZCU104 untouched.
 
 ### What that buys
 
@@ -28,10 +50,7 @@ whole thesis — the RTL ports up to a Kria K26 or a ZCU104 untouched.
 | **W3** | TinyLlama-1.1B | W3 g128 AutoGPTQ | 1.1 B parameters living in a 512 MB board · 5/5 fixtures byte-exact **on the bitstream** |
 | **ternary** | BitNet b1.58 · ~700 M | `{-1, 0, +1}` @ 2-bit | no multipliers at all — a mux-adder tree · 32 weights per 64-bit beat |
 
-Ternary is the interesting one: because the weights are `{-1, 0, +1}`, every
-multiply collapses to a sign-select and an add. There is no `*` anywhere in the
-datapath, which lifts a 700 M model's decode ceiling from 2.8 to 11.4 tok/s at
-the board's measured 1.99 GB/s.
+Ternary is the interesting one: because the weights are `{-1, 0, +1}`, every multiply collapses to a sign-select and an add. There is no `*` anywhere in the datapath, which lifts a 700 M model's decode ceiling from 2.8 to 11.4 tok/s at the board's measured 1.99 GB/s.
 
 > Deliberately **not** claimed: that any of this is faster than a CPU (it isn't),
 > or that a model "runs on the FPGA" (the GEMVs do; norms, softmax and sampling
@@ -39,8 +58,7 @@ the board's measured 1.99 GB/s.
 
 ### Nothing counts until it closes
 
-A kernel isn't finished when it simulates. It's finished when the same golden
-vectors come back off the board matching the reference exactly:
+A kernel isn't finished when it simulates. It's finished when the same golden vectors come back off the board matching the reference exactly:
 
 ```
 spec ──> SystemVerilog / HLS C++
@@ -53,9 +71,7 @@ spec ──> SystemVerilog / HLS C++
 
 ### Before this
 
-Physics + EE at KFUPM, MSc ECE at KAUST. I worked on faster-than-Nyquist
-signaling — packing symbols tighter than Nyquist and paying for it with a
-turbo-equalized BCJR receiver that iterates its way back to clean bits.
+Physics + EE at KFUPM, MSc ECE at KAUST. I worked on faster-than-Nyquist signaling — packing symbols tighter than Nyquist and paying for it with a turbo-equalized BCJR receiver that iterates its way back to clean bits.
 
 **[coded-msprs](https://github.com/AbdullahAlNafisah/coded-msprs)** — rate-2
 multi-stream partial-response signaling, AFF3CT simulation chain · [arXiv:2511.08553](https://arxiv.org/abs/2511.08553)
