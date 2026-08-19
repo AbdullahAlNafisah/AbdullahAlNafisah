@@ -8,7 +8,8 @@
 
 Physics and EE at KFUPM. MSc ECE at KAUST.
 
-Python, C/C++, SystemVerilog/Verilog, Tcl, CMake/Make, Git.
+Agentic workflows, quantized LLM inference, and RTL that is machine-checked
+before it counts.
 
 [**CV**](cv/Abdullah_Al_Nafisah_CV.pdf)
 
