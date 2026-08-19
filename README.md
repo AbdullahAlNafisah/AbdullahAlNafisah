@@ -4,11 +4,11 @@
 
 ### abdullah al-nafisah
 
-`llm inference hardware for commodity fpgas`
+`signal processing, and the hardware that runs it`
 
-I take the matrix–vector multiply that dominates every transformer linear layer, push it into FPGA fabric, and prove it matches the reference **bit for bit on real silicon** — not in simulation, not within tolerance. Zero.
+Physics and Electrical Engineering at KFUPM. MSc in Electrical and Computer Engineering at KAUST.
 
-`systemverilog` `vitis hls` `cocotb` `verilator` `pynq` `python`
+`c++` `python` `systemverilog` `vitis hls` `cocotb` `pynq`
 
 </td>
 <td valign="top" width="46%">
@@ -29,52 +29,21 @@ I take the matrix–vector multiply that dominates every transformer linear laye
 </tr>
 </table>
 
-```
-             one weight-stationary GEMV, four datapaths
-            ┌──────────────────────────────────────────┐
-AXI4-Stream ┤  Q4.12  ·  INT8  ·  W3 g128  ·  ternary  ├──> tokens
-            └──────────────────────────────────────────┘
-              microGPT  GPT-2    TinyLlama    BitNet
-                ~KB     124 M      1.1 B      ~700 M
+### MS-PRS: two bits per symbol, then untangling them
 
-                       all on a $99 Zynq-7020
-```
+Most radios send one symbol at a time and work hard to stop them smearing into each other. Multi-Stream Partial Response Signaling does the opposite. It adds the smearing deliberately, in the digital domain, through short filters across two sub-streams, and hands the receiver the job of undoing it. Nothing is compressed in time, which is what separates it from faster-than-Nyquist signaling.
 
-Same AXI-Stream boundary every time; only the datapath changes. That is the whole thesis — the RTL ports up to a Kria K26 or a ZCU104 untouched.
+Undoing it is a loop. A BCJR equalizer and an outer decoder pass soft guesses back and forth, each one sharpening the other's next pass, until the bits settle. At rate 2 this carries two bits per channel use, the same spectral efficiency as 4-ASK, on a four-state trellis when L0 = 3.
 
-### What that buys
+The simulator is C++ on AFF3CT with a Python reference beside it, and the two agree to better than 1e-6 on identical input. 414 cached BER points and 12 EXIT characteristics live in the repo, so every figure regenerates without rerunning a simulation.
 
-| | model | quant | the part that shouldn't work |
-|---|---|---|---|
-| **INT8** | GPT-2 small · 124 M | per-channel INT8 | `0 / 220` DSP48E1 — every multiply inferred into LUTs · `max\|diff\| = 0` on 4/4 shapes |
-| **W3** | TinyLlama-1.1B | W3 g128 AutoGPTQ | 1.1 B parameters living in a 512 MB board · 5/5 fixtures byte-exact **on the bitstream** |
-| **ternary** | BitNet b1.58 · ~700 M | `{-1, 0, +1}` @ 2-bit | no multipliers at all — a mux-adder tree · 32 weights per 64-bit beat |
+**[coded-msprs](https://github.com/AbdullahAlNafisah/coded-msprs)** · [arXiv:2511.08553](https://arxiv.org/abs/2511.08553) · [MSc thesis, KAUST](https://repository.kaust.edu.sa/items/db129afb-21ad-468d-aaee-864f2518d0b7)
 
-Ternary is the interesting one: because the weights are `{-1, 0, +1}`, every multiply collapses to a sign-select and an add. There is no `*` anywhere in the datapath, which lifts a 700 M model's decode ceiling from 2.8 to 11.4 tok/s at the board's measured 1.99 GB/s.
+### Now: transformer inference on small FPGAs
 
-> Deliberately **not** claimed: that any of this is faster than a CPU (it isn't),
-> or that a model "runs on the FPGA" (the GEMVs do; norms, softmax and sampling
-> run on the ARM). The defensible claims are bit-exactness, zero DSPs, and ~2.5 W.
+Running language models on a $99 PYNQ-Z2 board by moving the matrix multiply that dominates every layer into programmable logic, and checking the result against the reference bit for bit on the board itself. Three sizes so far: GPT-2 124 M at INT8, TinyLlama-1.1B at 3 bits per weight, and a ternary kernel that needs no hardware multipliers at all.
 
-### Nothing counts until it closes
-
-A kernel isn't finished when it simulates. It's finished when the same golden vectors come back off the board matching the reference exactly:
-
-```
-spec ──> SystemVerilog / HLS C++
-             │
-             ├──> Verilator · cocotb · C-sim
-             ├──> golden fixtures, byte-exact
-             ├──> bitstream, timing closed
-             └──> silicon ──> max|diff| = 0
-```
-
-### Before this
-
-Physics + EE at KFUPM, MSc ECE at KAUST. I worked on faster-than-Nyquist signaling — packing symbols tighter than Nyquist and paying for it with a turbo-equalized BCJR receiver that iterates its way back to clean bits.
-
-**[coded-msprs](https://github.com/AbdullahAlNafisah/coded-msprs)** — rate-2
-multi-stream partial-response signaling, AFF3CT simulation chain · [arXiv:2511.08553](https://arxiv.org/abs/2511.08553)
+These repositories are private while the work is early. Measured numbers, and what is deliberately not claimed, are on [al-nafisah.com](https://al-nafisah.com).
 
 ---
 
