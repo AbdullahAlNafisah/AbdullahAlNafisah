@@ -1,8 +1,9 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage{enumitem}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.45in]{geometry}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage{microtype}
 \usepackage{indentfirst}
 
 
@@ -10,7 +11,11 @@
 
 % Define section style
 \usepackage{titlesec}
-\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-3pt}\titlerule]
+\titlespacing*{\section}{0pt}{3pt}{1pt}
+\setlength{\parskip}{0pt}
+\setlist{topsep=1pt, partopsep=0pt, itemsep=0pt, parsep=0pt}
+\linespread{0.97}
 
 % Begin Document
 \begin{document}
@@ -20,7 +25,7 @@
 %======================
 \begin{center}
     \Huge{\textbf{Abdullah Al-Nafisah}}\\
-    \vspace{1mm}
+    \vspace{0.7mm}
     \normalsize
     \href{mailto:abdullah.y.alnafisah@gmail.com}{abdullah.y.alnafisah@gmail.com} \textbar{} \href{https://al-nafisah.com}{al-nafisah.com} \textbar{} \href{https://www.linkedin.com/in/abdullah-al-nafisah/}{LinkedIn} \textbar{} \href{https://github.com/AbdullahAlNafisah}{GitHub}
 \end{center}
@@ -38,28 +43,22 @@
 %======================
 \section*{Education}
 \noindent % June 20, 2024
-\textbf{Master of Science in Electrical and Computer Engineering} \hfill 2022 - 2024\\
-\textit{King Abdullah University of Science and Technology (KAUST), Thuwal, KSA} \\
-\underline{GPA: 3.83/4.0}\\ 
-Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org/10.25781/KAUST-M5140}{doi:10.25781/KAUST-M5140}\\
-Relevant Courses: Applied Mathematics, Analog Integrated Circuits, Digital Design and Computer Architecture, Data Structures and Algorithms, Mathematical Foundations of Machine Learning, Digital Communication and Coding, and Principles of Estimation, Filtering, and Detection.
+\textbf{MSc, Electrical and Computer Engineering} \hfill 2022 -- 2024\\
+\textit{King Abdullah University of Science and Technology (KAUST), Thuwal, KSA} \textbar{} GPA 3.83/4.0 \textbar{} Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org/10.25781/KAUST-M5140}{doi:10.25781/KAUST-M5140}
 
-\vspace{2mm} % May 2, 2019
-\textbf{Double Major Bachelor of Science in Electrical Engineering \& Physics} \hfill 2013 - 2019\\
-\textit{King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, KSA} \\
-\underline{GPA: 3.76/4.0} (1st Honors) \\
+\vspace{0.7mm} % May 2, 2019
+\textbf{BSc, Double Major in Electrical Engineering \& Physics} \hfill 2013 -- 2019\\
+\textit{King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, KSA} \textbar{} GPA 3.76/4.0, 1st Honors
 % Senior Project: \textit{Low-cost Wireless Seismic Data Acquisition System}\\
 % Relevant Courses: Numerical Computing, Signal Processing, Control Engineering, Digital Systems Engineering, Analog Communication Electronics, Micro and Nanoelectronics, Undergraduate Research, Thermodynamics, Electromagnetism, Classical Mechanics, Modern Physics, and Quantum Mechanics.
 
-\vspace{2mm}
+\vspace{0.7mm}
 \textbf{Exchange Student} \hfill Fall 2016\\
-\textit{Georgia Institute of Technology, Atlanta, GA, USA} \\
-\underline{GPA: 3.5/4.0} \\
-Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and Signal Processing.
+\textit{Georgia Institute of Technology, Atlanta, GA, USA} \textbar{} GPA 3.5/4.0
 
-\vspace{2mm}
+\vspace{0.7mm}
 \textbf{Summer School on Superconducting Electronics} \hfill Summer 2024\\
-\textit{FLUXONICS - The European Foundry for Superconducting Electronics e.V., Corsica, France} \\
+\textit{FLUXONICS, The European Foundry for Superconducting Electronics e.V., Corsica, France}
 % \underline{GPA: 3.5/4.0} \\
 % Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and Signal Processing.
 % %======================
@@ -102,7 +101,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 
 
 
-\vspace{2mm}
+\vspace{0.7mm}
 \textbf{Master's Thesis Research} \hfill Spring 2023 – Spring 2024\\
 \textit{Supervised by Dr. T. Al-Naffouri and Dr. M. Siala at KAUST, Thuwal, KSA}
 \begin{itemize}[left=0pt, label={--}]
@@ -114,7 +113,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 
 
 
-\vspace{2mm}
+\vspace{0.7mm}
 \textbf{Guided Research on Analog Electronic Circuits} \hfill Fall 2018 – Spring 2019\\
 \textit{Supervised by Dr. M. Abuelma’atti at KFUPM, Dhahran, KSA}
 \begin{itemize}[left=0pt, label={--}]
@@ -123,14 +122,14 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 \end{itemize}
 
 
-\vspace{2mm}
+\vspace{0.7mm}
 \textbf{Mitacs Globalink Research Internship} \hfill Summer 2018\\
 \textit{Supervised by Dr. S. Valluri at Western University, London ON, Canada}
 \begin{itemize}[left=0pt, label={--}]
     \item Investigated the Lambert W function to describe the I-V characteristics of diode-based circuit models.
 \end{itemize}
 
-\vspace{2mm}
+\vspace{0.7mm}
 \textbf{Visiting Student Research Program (VSRP) Internship} \hfill Summer 2017\\
 \textit{Supervised by Dr. H. Fariborzi at KAUST, Thuwal, KSA}
 \begin{itemize}[left=0pt, label={--}]
@@ -138,7 +137,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
     \item Developed compact modules for charge/spin conduction, including ferromagnets (FM), non-magnets (NM), and FM/NM interfaces, along with generalizing the rotational matrix and optimizing the LLG solver.
 \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Undergraduate Research Course} \hfill Fall 2017\\
 % \textit{Supervised by Dr. S. Al-dharrab and Dr. N. Iqbal at KFUPM, Dhahran, KSA}
 % \begin{itemize}[left=0pt, label={--}]
@@ -150,25 +149,24 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %======================
 %     PUBLICATIONS
 %======================
-\section*{Publications}
-\begin{enumerate}[left=14pt, itemsep=1pt, topsep=2pt]
+\section*{Publications \& Posters}
+\noindent\textbf{Papers}
+\small\begin{enumerate}[left=14pt, itemsep=0.5pt, topsep=1pt]
     \item M. Siala, A. Al-Nafisah, and T. Al-Naffouri, ``Nyquist Signaling Modulation (NSM): An FTN-Inspired Paradigm Shift in Modulation Design for 6G and Beyond,'' \textit{arXiv:2511.08553}, 2025.
     \item A. Al-Nafisah, D. Khan, S. Amara, and Y. Massoud, ``Synchronization of Two Transistor-Based Chaotic Oscillators: Experimental Verification,'' \textit{IEEE 65th International Midwest Symposium on Circuits and Systems (MWSCAS)}, Fukuoka, Japan, pp. 1--4, 2022.
     \item M. T. Abuelma’atti and A. Al-Nafisah, ``New CFOA-Based Shadow Analog Comb Filter,'' \textit{Journal of Active and Passive Electronic Devices (JAPED)}, vol. 15, no. 1--2, pp. 1--8, 2020.
     \item M. T. Abuelma’atti and A. Al-Nafisah, ``Synchronization of Memristor-Based Chaotic Oscillator: Experimental Verification,'' \textit{Journal of Active and Passive Electronic Devices (JAPED)}, vol. 15, no. 1--2, pp. 21--28, 2020.
     \item M. T. Abuelma’atti and A. Al-Nafisah, ``A Memristor-Based Chaotic-Masking for Analog Spread-Spectrum Communication,'' \textit{Indonesian Journal of Electrical Engineering and Computer Science (IJEECS)}, vol. 14, no. 2, pp. 966--971, 2019.
-\end{enumerate}
+\end{enumerate}\normalsize
 
-%======================
-%     POSTERS
-%======================
-\section*{Posters}
-\begin{enumerate}[left=14pt, itemsep=1pt, topsep=2pt]
+\vspace{0.8mm}
+\noindent\textbf{Posters}
+\small\begin{enumerate}[left=14pt, itemsep=0.5pt, topsep=1pt]
     \item A. Al-Nafisah, M. Siala, and T. Al-Naffouri, ``Utilizing EXIT Charts for Turbo Processing of M-ASK Modulations in 6G Communications,'' \textit{6G Summit}, Abu Dhabi, UAE, 2023.
     \item A. Al-Nafisah, F. Al-Masri, F. Swaid, M. Al-Mousa, and M. Al-Shams, ``Prototype of a Wireless Seismic Data Acquisition System,'' \textit{Senior Design Project, KFUPM}, Dhahran, KSA, 2019.
     \item A. Al-Nafisah, N. Iqbal, and S. Al-Dharrab, ``Throughput Analysis of Wireless Geophone Networks for Seismic Surveys,'' \textit{IEEE GCC Conference \& Exhibition}, Bahrain, 2017.
     \item A. Al-Nafisah, M. Alawein, and H. Fariborzi, ``Modeling and Simulation of All-Spin Logic Device,'' \textit{KAUST Visiting Student Research Program (VSRP)}, Thuwal, KSA, 2017.
-\end{enumerate}
+\end{enumerate}\normalsize
 
 % \newpage
 %======================
@@ -183,28 +181,28 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Implemented [technology] to achieve [specific outcome].
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 
 % \textbf{Designing VR Experiences using Unreal Engine for the Ministry of Culture} \hfill Present\\
 % \textit{VR Competition for Museums, Museums Commission, KSA}
-% \vspace{2mm}
+% \vspace{0.7mm}
 
 % \textbf{Testing Communication Channels using Pluto+ SDR (2Rx \& 2TX)} \hfill Present\\
 % \textit{Hobby, Jeddah, KSA}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Magnetic Gradient Sensing using TMR Sensors Combined with Printed 3D Shapes} \hfill Present\\
 % \textit{Freelancing, Jeddah, KSA}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{FPGA-based Bidirectional High-Current DC Source with x5 Channels} \hfill Present\\
 % \textit{Freelancing, Jeddah, KSA}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{FPGA-based Ultrasound Ranging System with RF Synchronization Signals} \hfill Spring 2023\\
 % \textit{Freelancing, Jeddah, KSA}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Digital Communication System using Acoustic Channels} \hfill Fall 2023\\
 % \textit{MS Course Project on Digital Communication and Coding, KAUST, Thuwal, KSA}
 % \begin{itemize}[left=0pt, label={--}]
@@ -213,7 +211,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Transmitted and received an image with an error rate of 1.37\% and evaluated BER performance across varying SNR values.
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{MATLAB Implementation of Lempel-Ziv-Welch (LZW) Algorithm} \hfill Fall 2023\\
 % \textit{MS Course Project on Digital Communication and Coding, KAUST, Thuwal, KSA}
 % \begin{itemize}[left=0pt, label={--}]
@@ -221,7 +219,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Measured compression/decompression speed at around 100 Kbps.
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Piano Beats Game based on FPGA Control Logic} \hfill Spring 2022\\
 % \textit{MS Course Project on Digital Design and Computer Architecture, KAUST, Thuwal, KSA}
 % \begin{itemize}[left=0pt, label={--}]
@@ -230,7 +228,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Designed and integrated multiple modules such as the controller, VGA driver, sprite ROMs, audio ROMs, and collision detection logic.
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Three-stage OTA using 65nm CMOS Technology} \hfill Spring 2022\\
 % \textit{MS Course Project on Monolithic Amplifier Circuits, KAUST, Thuwal, KSA}
 % \begin{itemize}[left=0pt, label={--}]
@@ -240,7 +238,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Utilized feedforward networks and compensation capacitors for stability and improved pole separation.
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Low-cost Wireless Seismic Data Acquisition System} \hfill Spring 2018\\
 % \textit{Senior Project, KFUPM, Dhahran, KSA}
 % \begin{itemize}[left=0pt, label={--}]
@@ -276,7 +274,7 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Designed finite-state machines in different evaluation boards for precision time measurement (TDC7200).
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Avionics Engineer} \hfill December 2019 – October 2020\\
 % \textit{PSATRI, Riyadh, Saudi Arabia}
 % \begin{itemize}[left=0pt, label={--}]
@@ -285,15 +283,15 @@ Relevant Courses: Astronomy, Electromagnetism, Electrical Energy Conversion, and
 %     \item Calculated battery capacity, discharge rates, and power consumption to maximize flight time.
 % \end{itemize}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Teaching Assistant} \hfill Spring 2019\\
 % \textit{Electronics LAB, KFUPM, Dhahran, KSA}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Grader} \hfill Fall 2018\\
 % \textit{Electrical Circuits, KFUPM, Dhahran, KSA}
 
-% \vspace{2mm}
+% \vspace{0.7mm}
 % \textbf{Grader} \hfill Fall 2016\\
 % \textit{Principles of Chemical Science, KFUPM, Dhahran, KSA}
 
