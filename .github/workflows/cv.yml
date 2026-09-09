@@ -1,0 +1,48 @@
+name: CV
+
+# Rebuilds the PDF whenever the LaTeX source changes and commits it back, so
+# the copy in the repo is never behind main.tex.
+on:
+  push:
+    paths:
+      - 'cv/**'
+      - '.github/workflows/cv.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cv
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Pin the PDF timestamp to the last commit that touched cv/, so an
+      # unchanged source produces a byte-identical PDF and the commit step
+      # below becomes a genuine no-op instead of churning the history.
+      - name: Pin a reproducible timestamp
+        run: |
+          echo "SOURCE_DATE_EPOCH=$(git log -1 --format=%ct -- cv)" >> "$GITHUB_ENV"
+          echo "FORCE_SOURCE_DATE=1" >> "$GITHUB_ENV"
+
+      - name: Compile
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: cv
+          root_file: main.tex
+
+      - name: Publish the PDF
+        run: |
+          mv cv/main.pdf cv/Abdullah_Al_Nafisah_CV.pdf
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cv/Abdullah_Al_Nafisah_CV.pdf
+          git commit -m "Rebuild CV" || exit 0
+          git push
