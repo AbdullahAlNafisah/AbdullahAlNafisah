@@ -5,6 +5,11 @@
 \usepackage{parskip}
 \usepackage{microtype}
 \usepackage{indentfirst}
+\usepackage{xcolor}
+
+% A number only he can supply. Renders in red brackets so a marker cannot
+% reach a sent CV unnoticed. Fill every one in, then delete this macro.
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 
 
 \pagestyle{empty} % no page numbers
@@ -83,10 +88,13 @@ Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org
 \textbf{Research \& Development} \hfill Oct 2020 – Present\\
 \textit{National Company of Telecommunications and Information Security (NTIS), KSA}
 \begin{itemize}[left=0pt, label={--}]
-    \item \textbf{Qubit control on the RFSoC:} General-purpose RF system on the AMD/Xilinx RFSoC ZCU216 with Pulse and CW modes and native support for LOs, VNAs, digitizers, and AWGs; output power and spurious emissions characterized.
-    \item \textbf{Real-time classification in fabric:} FPGA-based flexible line qubit classifier enabling mid-circuit measurement and active reset at nanosecond latency, with a trigger mode driven from a TTL-compatible sync signal to mitigate vibration-induced errors.
-    \item \textbf{Qubit characterization:} Single-qubit calibration and characterization (resonator punch-out, two-tone spectroscopy, Rabi, Ramsey) with a trained single-shot readout discriminator; resonators measured at high and low power to estimate single-photon drive power.
-    \item \textbf{Quantum links:} FPGA firmware and high-speed acquisition for a prototype QKD transmitter and receiver, and FPGA entropy extraction for QRNG on the IDQ20MC1 chip, certified to NIST SP 800-90B.
+    \item \textbf{Qubit control on the RFSoC:} General-purpose RF system on the AMD/Xilinx RFSoC ZCU216 with Pulse and CW modes and native support for LOs, VNAs, digitizers, and AWGs; output power measured at \todo{dBm} and spurious emissions at \todo{dBc}.
+    % NOTE: "flexible line" reads ambiguously outside your group: it is unclear
+    % whether "flexible" modifies the line or the classifier. If it means the
+    % decision boundary can be moved after training, say that instead.
+    \item \textbf{Real-time classification in fabric:} FPGA-based flexible line qubit classifier for mid-circuit measurement and active reset at \todo{ns} latency. A trigger mode driven from a TTL-compatible sync signal mitigates vibration-induced errors.
+    \item \textbf{Qubit characterization:} Single-qubit calibration (resonator punch-out, two-tone spectroscopy, Rabi, Ramsey) with a trained single-shot readout discriminator; resonators measured at high and low power to estimate single-photon drive power.
+    \item \textbf{Quantum links:} FPGA firmware and acquisition at \todo{sample rate} for a prototype QKD transmitter and receiver, and FPGA entropy extraction for QRNG on the IDQ20MC1 chip, certified to NIST SP 800-90B.
     \item \textbf{RF and embedded:} Direct RF sampling with x16 DACs and ADCs on RFSoC, optical links on MPSoC, RF switches built from off-the-shelf parts for RF-multiplexing, PCB design, and VHDL/Verilog controllers with custom UART, I2C, and SPI drivers.
 \end{itemize}
 
@@ -95,7 +103,7 @@ Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org
 \textbf{Avionics Engineer} \hfill Dec 2019 – Oct 2020\\
 \textit{PSATRI, Riyadh, KSA}
 \begin{itemize}[left=0pt, label={--}]
-    \item PCB design for unmanned aerial vehicle avionics in Altium, with drone weight, thrust-to-weight ratio, and battery sizing optimized for flight time.
+    \item PCB design for unmanned aerial vehicle avionics in Altium, with weight, thrust-to-weight ratio, and battery sizing optimized for \todo{minutes} of flight time.
 \end{itemize}
 
 
@@ -104,7 +112,7 @@ Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org
 \textbf{Master's Thesis Research} \hfill Spring 2023 – Spring 2024\\
 \textit{Supervised by Dr. T. Al-Naffouri and Dr. M. Siala at KAUST, Thuwal, KSA}
 \begin{itemize}[left=0pt, label={--}]
-    \item Integrated FTN-inspired modulations with turbo equalization and LDPC decoding, beating the BER reported in state-of-the-art literature.
+    \item Integrated FTN-inspired modulations with turbo equalization and LDPC decoding, beating \todo{baseline scheme or paper} by \todo{margin in dB, and at which BER}.
 \end{itemize}
 
 
@@ -122,7 +130,7 @@ Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org
 \textbf{Mitacs Globalink Research Internship} \hfill Summer 2018\\
 \textit{Supervised by Dr. S. Valluri at Western University, London ON, Canada}
 \begin{itemize}[left=0pt, label={--}]
-    \item Investigated the Lambert W function for the I-V characteristics of diode-based circuit models.
+    \item Applied the Lambert W function to the I-V characteristics of diode-based circuit models; \todo{what came out of it}.
 \end{itemize}
 
 \vspace{0.7mm}
@@ -147,7 +155,7 @@ Thesis: \textit{Turbo-Equalized FTN-Inspired Modulations}, \href{https://doi.org
 \divider
 \noindent\textbf{Projects} \hfill \href{https://github.com/AbdullahAlNafisah}{github.com/AbdullahAlNafisah}
 \begin{itemize}[left=0pt, label={--}]
-    \item \textbf{llm-kv260-demo:} FPGA-based edge AI, an LLM decoded by four AMD Kria KV260 FPGAs on one stream.
+    \item \textbf{llm-kv260-demo:} An LLM decoded by four AMD Kria KV260 FPGAs on one stream.
     \item \textbf{coded-msprs:} Rate-2 turbo-equalized MS-PRS simulation chain in C++ on AFF3CT, behind the thesis and the NSM paper.
 \end{itemize}
 
